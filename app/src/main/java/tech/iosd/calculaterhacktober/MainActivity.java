@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
     Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign;
-    EditText edit1,edit2;
+    EditText edit1;
+    TextView edit2;
     float value1,value2;
     float ans=0;
     boolean addition,subtraction,division,multiplication,answer;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         clearall=(Button)findViewById(R.id.ac);
         decimal=(Button)findViewById(R.id.decimal);
         edit1= (EditText) findViewById(R.id.editText1);
-        edit2= (EditText) findViewById(R.id.editText2);
+        edit2= (TextView) findViewById(R.id.editText2);
         percent= (Button) findViewById(R.id.percent);
         sign= (Button) findViewById(R.id.sign);
         // change= (Button) findViewById(R.id.change);
@@ -212,7 +214,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try{
                     value2=Float.parseFloat(edit1.getText()+"");
-                    edit2.setText("Result");
+                    String str= edit2.getText().toString()+edit1.getText().toString();
+                    edit2.setText(str+"=");
                     answer=true;
                     if(addition==true){
                         ans=value1+value2;
