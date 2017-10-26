@@ -5,6 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
 
     tools:layout_editor_absoluteX="8dp"
@@ -35,6 +36,7 @@
             android:layout_weight="1"
             android:cursorVisible="false"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:textColor="@color/color3"
             android:textSize="40dp" />
 
     </LinearLayout>
