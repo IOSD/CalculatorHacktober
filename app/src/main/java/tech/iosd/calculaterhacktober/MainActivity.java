@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign;
-    EditText edit1;
-    TextView edit2;
+
+    TextView edit2,edit1;
     float value1,value2;
     float ans=0;
     boolean addition,subtraction,division,multiplication,answer;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         clear=(Button)findViewById(R.id.c);
         clearall=(Button)findViewById(R.id.ac);
         decimal=(Button)findViewById(R.id.decimal);
-        edit1= (EditText) findViewById(R.id.editText1);
+        edit1= (TextView) findViewById(R.id.editText1);
         edit2= (TextView) findViewById(R.id.editText2);
         percent= (Button) findViewById(R.id.percent);
         sign= (Button) findViewById(R.id.sign);
