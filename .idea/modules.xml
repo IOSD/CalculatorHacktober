@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CalculaterHacktober.iml" filepath="$PROJECT_DIR$/CalculaterHacktober.iml" />
       <module fileurl="file://$PROJECT_DIR$/CalculatorHacktober.iml" filepath="$PROJECT_DIR$/CalculatorHacktober.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CalculatorHacktober.iml" filepath="$PROJECT_DIR$/CalculatorHacktober.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
