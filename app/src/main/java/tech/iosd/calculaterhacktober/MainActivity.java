@@ -3,6 +3,8 @@ package tech.iosd.calculaterhacktober;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -260,9 +262,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-//    public void scientific(View view)
-//    {
-//        startActivity(new Intent(this,scientificCalc.class));
-//    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.ac_scientific:
+
+                break;
+
+            case R.id.ac_about:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
 

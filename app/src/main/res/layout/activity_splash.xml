@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/a"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="tech.iosd.calculaterhacktober.Splash">
+
+    <TextView
+        android:text="CALCULATE"
+        android:textColor="#fff"
+        android:background="#99000000"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
