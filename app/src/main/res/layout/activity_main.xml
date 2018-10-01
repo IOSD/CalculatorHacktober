@@ -16,6 +16,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:background="@android:color/white"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
@@ -25,6 +26,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:cursorVisible="false"
+			  app:autoSizeTextType="uniform"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:textColor="@color/color3"
             android:textSize="40dp" />
@@ -37,7 +39,7 @@
             android:cursorVisible="false"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:textColor="@color/color3"
-            android:textSize="40dp" />
+            android:textSize="35dp" />
 
     </LinearLayout>
 
@@ -45,15 +47,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.75"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#434343">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+           >
 
             <Button
                 android:id="@+id/c"
@@ -64,6 +66,7 @@
                 android:text="C"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
+                android:background="#636363"
                 android:textStyle="bold" />
 
             <Button
@@ -73,6 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="AC"
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -84,6 +88,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="%"
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -95,6 +100,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="="
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -105,9 +111,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textSize="20dp">
+
+          >
 
             <Button
                 android:id="@+id/one"
@@ -148,6 +153,7 @@
                 android:text="+"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
+                android:background="#636363"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -156,8 +162,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+        >
 
             <Button
                 android:id="@+id/four"
@@ -196,6 +201,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="-"
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -206,8 +212,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            >
 
             <Button
                 android:id="@+id/seven"
@@ -246,6 +251,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="*"
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -256,8 +262,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+        >
 
             <Button
                 android:id="@+id/sign"
@@ -289,6 +294,7 @@
                 android:text="."
                 android:textColor="@color/color2"
                 android:textSize="20dp"
+
                 android:textStyle="bold" />
 
             <Button
@@ -298,6 +304,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="/"
+                android:background="#636363"
                 android:textColor="@color/color2"
                 android:textSize="20dp"
                 android:textStyle="bold" />
