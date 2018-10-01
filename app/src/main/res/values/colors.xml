@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="backgroundColor">#fff9c4</color>
-    <color name="color1">#bf360c</color>
-    <color name="color2">#5e35b1</color>
+    <color name="color1">@android:color/darker_gray</color>
+    <color name="color2">#FFFFFF</color>
     <color name="color3">#3e2723</color>
 </resources>
