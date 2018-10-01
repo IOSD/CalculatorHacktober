@@ -25,6 +25,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:cursorVisible="false"
+			  app:autoSizeTextType="uniform"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:textColor="@color/color3"
             android:textSize="40dp" />
