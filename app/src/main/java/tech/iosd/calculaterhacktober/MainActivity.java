@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
     float ans=0;
     boolean addition,subtraction,division,multiplication,answer,calcPower,calcMod;
 
+    /**
+     * Zyro
+     * Added string to save HISTORY
+     * **/
+
+    StringBuilder historyString = new StringBuilder("");
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,11 +45,8 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.action_history)
         {
             AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
-            alertDialog.setTitle("hi");
-            alertDialog.setMessage("this is my app");
-
-
-
+            alertDialog.setTitle("History");
+            alertDialog.setMessage(historyString);
             alertDialog.show();  //<-- See This!
         }
 
@@ -111,6 +115,7 @@ return true;
             @Override
             public void onClick(View view) {
                 edit1.setText(edit1.getText()+"3.14159");
+                historyString.append(edit1.getText()+"3.14159"+"\n");
             }
         });
 
@@ -123,6 +128,7 @@ return true;
                     value1=Float.parseFloat(edit1.getText()+"");
 
                     edit1.setText((sqrt(value1))+"");
+                    historyString.append(sqrt(value1)+"\n");
                 }
                 catch (Exception e){
                     edit1.setText("error");
@@ -234,6 +240,7 @@ return true;
 
                     value1 = Float.parseFloat(edit1.getText() + "");
                     edit2.setText(edit1.getText() + "^");
+                    historyString.append(edit1.getText() + "^" + "\n");
                     edit1.setText("");
 //                ans=Float.parseFloat(edit.getText()+"");
                     calcPower = true;
@@ -259,6 +266,7 @@ return true;
 
                     value1 = Float.parseFloat(edit1.getText() + "");
                     edit2.setText(edit1.getText() + "%");
+                    historyString.append(edit1.getText() + "%"+"\n");
                     edit1.setText("");
 //                ans=Float.parseFloat(edit.getText()+"");
                     calcMod = true;
@@ -280,6 +288,7 @@ return true;
                 try {
                     value1 = Float.parseFloat(edit1.getText() + "");
                     edit2.setText(edit1.getText() + "+");
+                    historyString.append(edit1.getText() + "+" + "\n");
                     edit1.setText("");
 //                ans=Float.parseFloat(edit.getText()+"");
                     addition = true;
@@ -310,6 +319,7 @@ return true;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"-");
+                    historyString.append(edit1.getText()+"-"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -331,6 +341,7 @@ return true;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"/");
+                    historyString.append(edit1.getText()+"/"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -352,6 +363,7 @@ return true;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"*");
+                    historyString.append(edit1.getText()+"*"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -392,6 +404,7 @@ return true;
                         ans = value1 % value2;
                     }
                     edit1.setText(ans+"");
+                    historyString.append(ans+""+"\n");
                 }
                 catch (Exception e){
                     edit1.setText("error");
