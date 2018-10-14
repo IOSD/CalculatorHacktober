@@ -1,25 +1,86 @@
 package tech.iosd.calculaterhacktober;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Math.sqrt;
+
 
 public class MainActivity extends AppCompatActivity {
-    Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign;
+    Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign,
+            pi,root,power,mod,history;
 
     TextView edit2,edit1;
     float value1,value2;
     float ans=0;
-    boolean addition,subtraction,division,multiplication,answer;
+    boolean addition,subtraction,division,multiplication,answer,calcPower,calcMod;
+
+    /**
+     * Zyro
+     * Added string to save HISTORY
+     * **/
+
+    StringBuilder historyString = new StringBuilder("");
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_history,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.action_history)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
+            alertDialog.setTitle("History");
+            alertDialog.setMessage(historyString);
+            alertDialog.show();  //<-- See This!
+        }
+
+
+return true;
+    }
+
+    /**
+     * Zyro
+     * Added history button
+     * **/
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        /**
+         * 14th October 2018
+         * HactoberFest
+         * Zyro adds four buttons PI,root,power,mod
+         **/
+
+        pi=(Button)findViewById(R.id.pi);
+        root=(Button)findViewById(R.id.root);
+        power=(Button)findViewById(R.id.power);
+        mod=(Button)findViewById(R.id.mod);
+
+
         add=(Button)findViewById(R.id.add);
         sub=(Button)findViewById(R.id.sub);
         mul=(Button)findViewById(R.id.mul);
@@ -43,6 +104,37 @@ public class MainActivity extends AppCompatActivity {
         percent= (Button) findViewById(R.id.percent);
         sign= (Button) findViewById(R.id.sign);
         // change= (Button) findViewById(R.id.change);
+
+        /** Zyro add onCLickListener
+         *
+         */
+
+        //What happens on PI?
+
+        pi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edit1.setText(edit1.getText()+"3.14159");
+                historyString.append(edit1.getText()+"3.14159"+"\n");
+            }
+        });
+
+        //What happens on root?
+
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    value1=Float.parseFloat(edit1.getText()+"");
+
+                    edit1.setText((sqrt(value1))+"");
+                    historyString.append(sqrt(value1)+"\n");
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
+            }
+        });
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,18 +230,79 @@ public class MainActivity extends AppCompatActivity {
                 edit1.setText("");
             }
         });
+
+        //What happens on power?
+        power.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "^");
+                    historyString.append(edit1.getText() + "^" + "\n");
+                    edit1.setText("");
+//                ans=Float.parseFloat(edit.getText()+"");
+                    calcPower = true;
+                    addition = false;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                    calcMod = false;
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
+
+            }
+        });
+
+        //What happens on MODULUS?
+
+        mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "%");
+                    historyString.append(edit1.getText() + "%"+"\n");
+                    edit1.setText("");
+//                ans=Float.parseFloat(edit.getText()+"");
+                    calcMod = true;
+                    calcPower = false;
+                    addition = false;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                value1=Float.parseFloat(edit1.getText()+"");
-                edit2.setText(edit1.getText()+"+");
-                edit1.setText("");
+                try {
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "+");
+                    historyString.append(edit1.getText() + "+" + "\n");
+                    edit1.setText("");
 //                ans=Float.parseFloat(edit.getText()+"");
-                addition=true;
-                subtraction=false;
-                division=false;
-                multiplication=false;
+                    addition = true;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                    calcPower = false;
+                    calcMod = false;
+
 //                edit.setText(null);
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
@@ -161,9 +314,12 @@ public class MainActivity extends AppCompatActivity {
                     addition=false;
                     division=false;
                     multiplication=false;
+                    calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"-");
+                    historyString.append(edit1.getText()+"-"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -180,9 +336,12 @@ public class MainActivity extends AppCompatActivity {
                     subtraction=false;
                     addition=false;
                     multiplication=false;
+                    calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"/");
+                    historyString.append(edit1.getText()+"/"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -199,9 +358,12 @@ public class MainActivity extends AppCompatActivity {
                     subtraction=false;
                     division=false;
                     addition=false;
+                    calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"*");
+                    historyString.append(edit1.getText()+"*"+"\n");
                     edit1.setText("");
                 }
                 catch (Exception e){
@@ -234,7 +396,15 @@ public class MainActivity extends AppCompatActivity {
                         //multiplication=false;
 
                     }
+                    else if(calcPower==true){
+                        ans = (float)Math.pow(value1,value2);
+
+                    }
+                    else if(calcMod==true){
+                        ans = value1 % value2;
+                    }
                     edit1.setText(ans+"");
+                    historyString.append(ans+""+"\n");
                 }
                 catch (Exception e){
                     edit1.setText("error");
