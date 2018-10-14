@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CalculatorHacktober</string>
     <string name="sqr_root">√¯¯</string>
+    <string name="history">History</string>
+
 
 </resources>

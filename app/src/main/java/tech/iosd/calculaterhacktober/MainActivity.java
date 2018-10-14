@@ -1,8 +1,13 @@
 package tech.iosd.calculaterhacktober;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +18,47 @@ import static java.lang.Math.sqrt;
 
 public class MainActivity extends AppCompatActivity {
     Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign,
-            pi,root,power,mod;
+            pi,root,power,mod,history;
 
     TextView edit2,edit1;
     float value1,value2;
     float ans=0;
     boolean addition,subtraction,division,multiplication,answer,calcPower,calcMod;
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_history,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.action_history)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
+            alertDialog.setTitle("hi");
+            alertDialog.setMessage("this is my app");
+
+
+
+            alertDialog.show();  //<-- See This!
+        }
+
+
+return true;
+    }
+
+    /**
+     * Zyro
+     * Added history button
+     * **/
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
