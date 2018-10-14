@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView edit2,edit1;
     float value1,value2;
     float ans=0;
-    boolean addition,subtraction,division,multiplication,answer;
+    boolean addition,subtraction,division,multiplication,answer,calcPower;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,18 +184,50 @@ public class MainActivity extends AppCompatActivity {
                 edit1.setText("");
             }
         });
+
+        //What happens on power?
+        power.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "^");
+                    edit1.setText("");
+//                ans=Float.parseFloat(edit.getText()+"");
+                    calcPower = true;
+                    addition = false;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
+
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                value1=Float.parseFloat(edit1.getText()+"");
-                edit2.setText(edit1.getText()+"+");
-                edit1.setText("");
+                try {
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "+");
+                    edit1.setText("");
 //                ans=Float.parseFloat(edit.getText()+"");
-                addition=true;
-                subtraction=false;
-                division=false;
-                multiplication=false;
+                    addition = true;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                    calcPower = false;
+
 //                edit.setText(null);
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
@@ -207,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     addition=false;
                     division=false;
                     multiplication=false;
+                    calcPower=false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"-");
@@ -226,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
                     subtraction=false;
                     addition=false;
                     multiplication=false;
+                    calcPower=false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"/");
@@ -245,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
                     subtraction=false;
                     division=false;
                     addition=false;
+                    calcPower=false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"*");
@@ -278,6 +313,10 @@ public class MainActivity extends AppCompatActivity {
                     else if(multiplication==true){
                         ans=value1*value2;
                         //multiplication=false;
+
+                    }
+                    else if(calcPower=true){
+                        ans = (float)Math.pow(value1,value2);
 
                     }
                     edit1.setText(ans+"");
