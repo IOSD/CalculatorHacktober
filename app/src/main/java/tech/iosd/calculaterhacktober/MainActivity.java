@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView edit2,edit1;
     float value1,value2;
     float ans=0;
-    boolean addition,subtraction,division,multiplication,answer,calcPower;
+    boolean addition,subtraction,division,multiplication,answer,calcPower,calcMod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,11 +201,36 @@ public class MainActivity extends AppCompatActivity {
                     subtraction = false;
                     division = false;
                     multiplication = false;
+                    calcMod = false;
                 }
                 catch (Exception e){
                     edit1.setText("error");
                 }
 
+            }
+        });
+
+        //What happens on MODULUS?
+
+        mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+
+                    value1 = Float.parseFloat(edit1.getText() + "");
+                    edit2.setText(edit1.getText() + "%");
+                    edit1.setText("");
+//                ans=Float.parseFloat(edit.getText()+"");
+                    calcMod = true;
+                    calcPower = false;
+                    addition = false;
+                    subtraction = false;
+                    division = false;
+                    multiplication = false;
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
             }
         });
 
@@ -222,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
                     division = false;
                     multiplication = false;
                     calcPower = false;
+                    calcMod = false;
 
 //                edit.setText(null);
                 }
@@ -240,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
                     division=false;
                     multiplication=false;
                     calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"-");
@@ -260,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
                     addition=false;
                     multiplication=false;
                     calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"/");
@@ -280,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
                     division=false;
                     addition=false;
                     calcPower=false;
+                    calcMod = false;
 //                    edit.setText(null);
                     value1=Float.parseFloat(edit1.getText()+"");
                     edit2.setText(edit1.getText()+"*");
@@ -315,9 +344,12 @@ public class MainActivity extends AppCompatActivity {
                         //multiplication=false;
 
                     }
-                    else if(calcPower=true){
+                    else if(calcPower==true){
                         ans = (float)Math.pow(value1,value2);
 
+                    }
+                    else if(calcMod==true){
+                        ans = value1 % value2;
                     }
                     edit1.setText(ans+"");
                 }
