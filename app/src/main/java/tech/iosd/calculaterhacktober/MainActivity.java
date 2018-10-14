@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Math.sqrt;
+
 
 public class MainActivity extends AppCompatActivity {
-    Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign;
+    Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign,
+            pi,root,power,mod;
 
     TextView edit2,edit1;
     float value1,value2;
@@ -20,6 +23,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        /**
+         * 14th October 2018
+         * HactoberFest
+         * Zyro adds four buttons PI,root,power,mod
+         **/
+
+        pi=(Button)findViewById(R.id.pi);
+        root=(Button)findViewById(R.id.root);
+        power=(Button)findViewById(R.id.power);
+        mod=(Button)findViewById(R.id.mod);
+
+
         add=(Button)findViewById(R.id.add);
         sub=(Button)findViewById(R.id.sub);
         mul=(Button)findViewById(R.id.mul);
@@ -43,6 +60,35 @@ public class MainActivity extends AppCompatActivity {
         percent= (Button) findViewById(R.id.percent);
         sign= (Button) findViewById(R.id.sign);
         // change= (Button) findViewById(R.id.change);
+
+        /** Zyro add onCLickListener
+         *
+         */
+
+        //What happens on PI?
+
+        pi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edit1.setText(edit1.getText()+"3.14159");
+            }
+        });
+
+        //What happens on root?
+
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    value1=Float.parseFloat(edit1.getText()+"");
+
+                    edit1.setText((sqrt(value1))+"");
+                }
+                catch (Exception e){
+                    edit1.setText("error");
+                }
+            }
+        });
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
