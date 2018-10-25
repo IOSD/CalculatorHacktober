@@ -13,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
     Button add,sub,div,mul,one,two,three,four,five,six,seven,eight,nine,zero,equal,clear,decimal,clearall,percent,change,sign;
 
     TextView edit2,edit1;
+    String[] history = new String[5];
+    String formula;
+    int count=0;
     float value1,value2;
     float ans=0;
     boolean addition,subtraction,division,multiplication,answer;
@@ -219,22 +222,40 @@ public class MainActivity extends AppCompatActivity {
                     answer=true;
                     if(addition==true){
                         ans=value1+value2;
+                        formula=Float.toString(value1)+"+"+Float.toString(value2)+System.getProperty("line.separator")+Float.toString(ans);
                         //addition=false;
                     }
                     else if(subtraction==true){
                         ans=value1-value2;
+                        formula=Float.toString(value1)+"-"+Float.toString(value2)+System.getProperty("line.separator")+Float.toString(ans);
                         //subtraction=false;
                     }
                     else if(division==true){
                         ans=value1/value2;
+                        formula=Float.toString(value1)+"//"+Float.toString(value2)+System.getProperty("line.separator")+Float.toString(ans);
                         //division=false;
                     }
                     else if(multiplication==true){
                         ans=value1*value2;
+                        formula=Float.toString(value1)+"*"+Float.toString(value2)+System.getProperty("line.separator")+Float.toString(ans);
                         //multiplication=false;
 
                     }
                     edit1.setText(ans+"");
+
+                    if(count<=4)
+                    {
+                        history[count]=formula;
+                        count++;
+                    }
+                    else
+                    {
+                        for(int i =0; i<4; i++)
+                        {
+                            history[i]=history[i+1];
+                        }
+                        history[4]=formula;
+                    }
                 }
                 catch (Exception e){
                     edit1.setText("error");
